@@ -28,6 +28,7 @@ pipeline {
                         sh "./miniconda.sh -b -p ${WORKSPACE}/miniconda"
                         sh "hash -r"
                         sh "conda config --set always_yes yes --set changeps1 no"
+                        sh "exec bash"
                         sh "conda init bash"
                         echo "[INFO] Successfully installed conda"
                     }catch(error) {
@@ -39,6 +40,7 @@ pipeline {
                             ./miniconda.sh -b -p ${WORKSPACE}/miniconda
                             hash -r
                             conda config --set always_yes yes --set changeps1 no
+                            exec bash
                             conda init bash
                             echo "[INFO] Successfully installed Conda."
                         """
@@ -50,7 +52,7 @@ pipeline {
         // Create Python Environment
         stage("Create Python Env") {
             environment {
-                myEnv = "my-env"
+                myEnv = "my-env2"
             }
 
             steps {
