@@ -6,5 +6,9 @@ pipeline {
                 echo "Hi there world!"
             }
         }
+
+        stage("Run Python Script") {
+            sh "python3 script.py"
+        }
     }
 }
