@@ -10,6 +10,10 @@ pipeline {
         stage("Run Python Script") {
             steps {
                 sh "python3 script.py"
+                sh """
+                    conda activate my-env
+                    pip install django
+                """
             }
         }
     }
