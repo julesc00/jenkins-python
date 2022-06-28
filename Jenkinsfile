@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh "sudo chmod +x miniconda.sh"
+                        sh "chmod +x miniconda.sh"
                         sh "./miniconda.sh -b -p ${WORKSPACE}/miniconda"
                         sh "hash -r"
                         sh "conda config --set always_yes yes --set changeps1 no"
@@ -35,7 +35,7 @@ pipeline {
                             wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Linux-x86_64.sh -O miniconda.sh
                             echo "[INFO] Successfully downloaded miniconda" 
                             echo "[INFO] Attempting to install Conda"
-                            sudo chmod +x miniconda.sh
+                            chmod +x miniconda.sh
                             ./miniconda.sh -b -p ${WORKSPACE}/miniconda
                             hash -r
                             conda config --set always_yes yes --set changeps1 no
