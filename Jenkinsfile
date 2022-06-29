@@ -41,6 +41,8 @@ pipeline {
                 }
             }
             steps {
+                echo "[INFO] Attempting to install conda"
+
                 script {
                     try {
                         sh "chmod +x miniconda.sh"
@@ -50,7 +52,7 @@ pipeline {
                         sh "exec bash"
                         sh "conda init bash"
                         echo "[INFO] Successfully installed conda"
-                    }catch(error) {
+                    }catch(exc) {
                         sh """
                             wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Linux-x86_64.sh -O miniconda.sh
                             echo "[INFO] Successfully downloaded miniconda" 
