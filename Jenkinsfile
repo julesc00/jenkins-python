@@ -64,16 +64,12 @@ pipeline {
             }
 
             steps {
-                try {
-                    sh "conda activate ${myEnv}"
-                }catch(error) {
-                    sh """
-                        echo "[INFO] Attempting to create Python environment"
-                        conda create -n ${myEnv} python=3.9
-                        conda activate ${myEnv}
-                        echo "[INFO] Enviroment successfully created and activated."
-                    """
-                }
+                sh """
+                    echo "[INFO] Attempting to create Python environment"
+                    conda create -n ${myEnv} python=3.9
+                    conda activate ${myEnv}
+                    echo "[INFO] Enviroment successfully created and activated."
+                """
             }
         }
     }
