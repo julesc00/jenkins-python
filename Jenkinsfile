@@ -27,6 +27,22 @@ pipeline {
             }
         }
 
+        // Install pipenv
+        stage("Install Pipenv") {
+            steps {
+                sh "python3 install --user pipenv"
+                echo "[INFO] Pipenv was installed successfully."
+            }
+        }
+
+        // Create pipenv environment
+        stage("Crete pipenv environment") {
+            steps {
+                sh "pipenv shell"
+                sh "pipenv install -r requirements.txt"
+            }
+        }
+
         /*
         // New install conda
         stage("Install conda try") {
@@ -48,6 +64,7 @@ pipeline {
         }
         */
 
+        /*
         // Create Python Environment
         stage("Create Python Env") {
             environment {
@@ -65,4 +82,5 @@ pipeline {
             }
         }
     }
+    */
 }
