@@ -51,13 +51,14 @@ pipeline {
         // Create Python Environment
         stage("Create Python Env") {
             environment {
-                myEnv = "my-env2"
+                myEnv = "my-env3"
             }
 
             steps {
                 sh """
                     echo "[INFO] Attempting to create Python environment"
                     conda create -n ${myEnv} python=3.9
+                    echo "conda activate" >> /var/lib/jenkins/.bashrc
                     conda activate ${myEnv}
                     echo "[INFO] Enviroment successfully created and activated."
                 """
