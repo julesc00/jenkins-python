@@ -21,25 +21,15 @@ pipeline {
 
         // Test install conda stage
         stage("Test conda installed") {
-            when {
-                expression {
-                    ${env.WORKSPACE}/miniconda
-                }
-            }
             steps {
-                echo "Miniconda is already installed."
                 sh "exec bash"
                 sh "conda init bash"
             }
         }
 
+        /*
         // New install conda
         stage("Install conda try") {
-            when {
-                expression {
-                    !${WORKSPACE}/miniconda
-                }
-            }
             steps {
                 echo "[INFO] Attempting to install conda"
                 sh """
@@ -56,6 +46,7 @@ pipeline {
                 """
             }
         }
+        */
 
         // Create Python Environment
         stage("Create Python Env") {
