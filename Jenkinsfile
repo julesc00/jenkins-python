@@ -18,7 +18,7 @@ pipeline {
         // Install pipenv
         stage("Install Pipenv") {
             steps {
-                sh "pip install --user pipenv"
+                sh "pip3 install --user pipenv"
                 echo "[INFO] Pipenv was installed successfully."
             }
         }
