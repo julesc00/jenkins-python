@@ -1,7 +1,9 @@
 pipeline {
+    /*
     environment {
         PATH = "${WORKSPACE}/poetry/bin:bin$PATH"
     }
+    */
     agent any
 
     stages {
@@ -21,19 +23,20 @@ pipeline {
         // Install pipenv
         stage("Install Poetry") {
             steps {
-                sh "pip3 install --user poetry"
-                echo "[INFO] Pipenv was installed successfully."
+                sh "curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python"
+                sh "${HOME}/.poetry/bin/poetry install --no-root"
+                echo "[INFO] Poetry was installed successfully."
                 // sh "which poetry"
             }
         }
 
         // Create pipenv environment
-        stage("Crete pipenv environment") {
+        stage("Create poetry environment") {
             steps {
-                sh "mkdir app && cd app"
-                sh "poetry new ."
-                sh "poetry shell"
-                sh "poetry add django djangorestframework pytest pytest-django"
+                sh "mkdir app2 && cd app2"
+                sh "${HOME}/.poetry/bin/poetry new 'django_app'"
+                sh "${HOME}/.poetry/bin/poetry shell"
+                sh "${HOME}/.poetry/bin/poetry add 'django djangorestframework pytest pytest-django'"
             }
         }
     }
