@@ -1,9 +1,8 @@
 pipeline {
-    /*
     environment {
-        PATH = "${WORKSPACE}/poetry/bin:bin$PATH"
+        PATH = "${HOME}/poetry/bin:bin${PATH}"
     }
-    */
+
     agent any
 
     stages {
