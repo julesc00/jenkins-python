@@ -23,7 +23,7 @@ pipeline {
             steps {
                 sh "pip3 install --user poetry"
                 echo "[INFO] Pipenv was installed successfully."
-                sh "which poetry"
+                // sh "which poetry"
             }
         }
 
