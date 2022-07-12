@@ -1,6 +1,6 @@
 pipeline {
     environment {
-        PATH = "${HOME}/poetry/bin:bin${PATH}"
+        PATH = "${WORKSPACE}/poetry/bin:bin${PATH}"
     }
 
     agent any
@@ -33,9 +33,9 @@ pipeline {
         stage("Create poetry environment") {
             steps {
                 sh "mkdir app4 && cd app4 && pwd"
-                sh "${HOME}/poetry/bin/poetry new django_app"
-                sh "${HOME}/poetry/bin/poetry shell"
-                sh "${HOME}/poetry/bin/poetry add 'django djangorestframework pytest pytest-django'"
+                sh "${WORKSPACE}/poetry/bin/poetry new django_app"
+                sh "${WORKSPACE}/poetry/bin/poetry shell"
+                sh "${WORKSPACE}/poetry/bin/poetry add 'django djangorestframework pytest pytest-django'"
             }
         }
     }
