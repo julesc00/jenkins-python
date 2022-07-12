@@ -25,14 +25,14 @@ pipeline {
                 sh "pip3 install poetry"
                 // sh "${HOME}/.poetry/bin/poetry install --no-root"
                 echo "[INFO] Poetry was installed successfully."
-                // sh "which poetry"
+                 sh "pwd"
             }
         }
 
         // Create pipenv environment
         stage("Create poetry environment") {
             steps {
-                sh "mkdir app3 && cd app3"
+                sh "mkdir app3 && cd app3 && pwd"
                 sh "${HOME}/poetry/bin/poetry new django_app"
                 sh "${HOME}/poetry/bin/poetry shell"
                 sh "${HOME}/poetry/bin/poetry add 'django djangorestframework pytest pytest-django'"
