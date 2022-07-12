@@ -23,7 +23,7 @@ pipeline {
         stage("Install Poetry") {
             steps {
                 sh "pip3 install poetry"
-                sh "${HOME}/.poetry/bin/poetry install --no-root"
+                // sh "${HOME}/.poetry/bin/poetry install --no-root"
                 echo "[INFO] Poetry was installed successfully."
                 // sh "which poetry"
             }
