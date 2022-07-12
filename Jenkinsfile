@@ -22,7 +22,7 @@ pipeline {
         // Install pipenv
         stage("Install Poetry") {
             steps {
-                sh "curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python"
+                sh "pip3 install poetry"
                 sh "${HOME}/.poetry/bin/poetry install --no-root"
                 echo "[INFO] Poetry was installed successfully."
                 // sh "which poetry"
