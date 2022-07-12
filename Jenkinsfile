@@ -32,7 +32,7 @@ pipeline {
         // Create pipenv environment
         stage("Create poetry environment") {
             steps {
-                sh "mkdir app3 && cd app3 && pwd"
+                sh "mkdir app4 && cd app4 && pwd"
                 sh "${HOME}/poetry/bin/poetry new django_app"
                 sh "${HOME}/poetry/bin/poetry shell"
                 sh "${HOME}/poetry/bin/poetry add 'django djangorestframework pytest pytest-django'"
