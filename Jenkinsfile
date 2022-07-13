@@ -29,13 +29,15 @@ pipeline {
             }
         }
 
-        // Create pipenv environment
-        stage("Create poetry environment") {
+        // Installing deps and creating/running Django project
+        stage("Install deps to local environment") {
             steps {
-                sh "mkdir app5 && cd app5 && pwd"
-                sh "${WORKSPACE}/poetry/bin/poetry new django_app"
-                sh "${WORKSPACE}/poetry/bin/poetry shell"
-                sh "${WORKSPACE}/poetry/bin/poetry add 'django djangorestframework pytest pytest-django'"
+                sh "pip3 -r requirements.txt"
+                sh """ 
+                    python3 manage.py migrate
+                    python3 manage.py runserver
+                """
+                sh ""
             }
         }
     }
