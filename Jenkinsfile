@@ -32,7 +32,7 @@ pipeline {
         // Installing deps and creating/running Django project
         stage("Install deps to local environment") {
             steps {
-                sh "pip install -r requirements.txt"
+                sh "pip3 install -r requirements.txt"
                 sh """ 
                     python3 manage.py migrate
                     python3 manage.py runserver
