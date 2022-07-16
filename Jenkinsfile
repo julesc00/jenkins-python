@@ -1,8 +1,8 @@
 pipeline {
-    environment {
+    /*environment {
         PATH = "${WORKSPACE}/poetry/bin:bin${PATH}"
     }
-
+    */
     agent any
 
     stages {
@@ -30,14 +30,19 @@ pipeline {
         }
 
         // Installing deps and creating/running Django project
-        stage("Install deps to local environment") {
+        stage("Start Python environment") {
             steps {
-
-                sh "pip3 install -r requirements.txt"
-                sh """ 
-                    python3 manage.py runserver
+                sh """
+                    python3 -m venv my_env
+                    source my_env/bin/activate
+                    pip list
+                    pip install -r requirements.txt
+                    pip list
                 """
-                sh ""
+
+                echo "Jump to Job workspace"
+                sh "cd /var/lib/jenkins/workspace/${JOB_NAME}/"
+                sh "pytest -vv"
             }
         }
     }
