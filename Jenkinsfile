@@ -36,6 +36,7 @@ pipeline {
                     echo "Python version before activating environment"
                     python --version
                     python -m venv my_env
+                    source my_env/bin/deactivate
                     source my_env/bin/activate
                     python --version
                     pip list
