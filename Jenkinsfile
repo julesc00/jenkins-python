@@ -44,6 +44,7 @@ pipeline {
                     pip list
                     pip install -r requirements.txt
                     pip list
+                    pytest --junitxml=./xmlReport/output.xml
                 """
 
                 echo "Run pytest"
@@ -51,7 +52,6 @@ pipeline {
                 sh "pwd"
                 sh "ls -als"
                 sh "echo $PATH"
-                sh "${PATH}/python/pytest --junitxml=./xmlReport/output.xml"
             }
         }
     }
