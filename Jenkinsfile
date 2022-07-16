@@ -36,8 +36,8 @@ pipeline {
                     echo "Python version before activating environment"
                     python3 --version
                     python3 -m venv my_env
-                    source ${JOB_NAME}/my_env/bin/deactivate
-                    source ${JOB_NAME}/my_env/bin/activate
+                    source ${WORKSPACE}/my_env/bin/deactivate
+                    source ${WORKSPACE}/my_env/bin/activate
                     python --version
                     pip list
                     pip install -r requirements.txt
