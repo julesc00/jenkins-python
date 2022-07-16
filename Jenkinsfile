@@ -50,7 +50,10 @@ pipeline {
                 // sh "cd /var/lib/jenkins/workspace/${JOB_NAME}/"
                 sh "pwd"
                 sh "ls -als"
-                sh "pytest --junitxml=./xmlReport/output.xml"
+
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+                    sh "pytest --junitxml=./xmlReport/output.xml"
+                }
             }
         }
     }
