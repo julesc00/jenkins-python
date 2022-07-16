@@ -40,8 +40,8 @@ pipeline {
                     pip list
                 """
 
-                echo "Jump to Job workspace and run pytest"
-                sh "cd /var/lib/jenkins/workspace/${JOB_NAME}/"
+                echo "Run pytest"
+                // sh "cd /var/lib/jenkins/workspace/${JOB_NAME}/"
                 sh "pytest -vv"
             }
         }
