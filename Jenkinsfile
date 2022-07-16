@@ -38,6 +38,8 @@ pipeline {
                     python3 --version
                     python3 -m venv my_env
                     source my_env/bin/activate
+
+                    echo "Python version after activating environment"
                     python --version
                     pip list
                     pip install -r requirements.txt
@@ -48,7 +50,7 @@ pipeline {
                 // sh "cd /var/lib/jenkins/workspace/${JOB_NAME}/"
                 sh "pwd"
                 sh "ls -als"
-                sh "pytest -vv"
+                sh "pytest --junitxml=./xmlReport/output.xml"
             }
         }
     }
