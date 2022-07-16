@@ -51,7 +51,7 @@ pipeline {
                 sh "pwd"
                 sh "ls -als"
                 sh "echo $PATH"
-                sh "pytest --junitxml=./xmlReport/output.xml"
+                sh "${PATH}/python/pytest --junitxml=./xmlReport/output.xml"
             }
         }
     }
