@@ -12,19 +12,6 @@ pipeline {
             }
         }
 
-        stage("Update Python Version") {
-            steps {
-                sh """
-                    echo "[INFO] Updating Python version..."
-                    yum update
-                    yum -y install python39
-
-                    python3.9 --version
-                    yum install python39-pip -y
-                """
-            }
-        }
-
         // Run simple Python script
         stage("Run Python script") {
             steps {
