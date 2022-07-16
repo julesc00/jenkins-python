@@ -43,7 +43,7 @@ pipeline {
                 echo "Run pytest"
                 // sh "cd /var/lib/jenkins/workspace/${JOB_NAME}/"
                 sh "ls -als"
-                sh "python3 -m pytest -vv"
+                sh "python -m pytest -vv"
             }
         }
     }
