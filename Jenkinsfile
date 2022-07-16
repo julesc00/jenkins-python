@@ -44,6 +44,8 @@ pipeline {
                     pip list
                     pip install -r requirements.txt
                     pip list
+                    python manage.py migrate
+
                     pytest --junitxml=./xmlReport/output.xml
                 """
 
