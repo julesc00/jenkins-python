@@ -46,6 +46,7 @@ pipeline {
 
                 echo "Run pytest"
                 // sh "cd /var/lib/jenkins/workspace/${JOB_NAME}/"
+                sh "pwd"
                 sh "ls -als"
                 sh "pytest -vv"
             }
