@@ -1,6 +1,6 @@
 asgiref==3.5.2
 certifi==2022.6.15
-Django>=3.2
+Django>=4.0
 pip==22.1.2
 pytest>=7.1
 pytest-django>=4.5
