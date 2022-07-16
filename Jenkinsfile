@@ -50,7 +50,7 @@ pipeline {
                 // sh "cd /var/lib/jenkins/workspace/${JOB_NAME}/"
                 sh "pwd"
                 sh "ls -als"
-                sh "${VIRTUAL_ENV}/pytest --junitxml=./xmlReport/output.xml"
+                sh "pytest --junitxml=./xmlReport/output.xml"
             }
         }
     }
