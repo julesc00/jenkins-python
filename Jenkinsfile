@@ -16,11 +16,11 @@ pipeline {
             steps {
                 sh """
                     echo "[INFO] Updating Python version..."
-                    sudo yum update
-                    sudo dnf install python39
+                    yum update
+                    yum -y install python39
 
                     python3.9 --version
-                    yum install python39-pip
+                    yum install python39-pip -y
                 """
             }
         }
