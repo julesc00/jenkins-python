@@ -52,7 +52,7 @@ pipeline {
                 sh "ls -als"
 
                 withEnv(["HOME=${env.WORKSPACE}"]) {
-                    sh "pytest --junitxml=./xmlReport/output.xml"
+                    sh "${VIRTUAL_ENV}/pytest --junitxml=./xmlReport/output.xml"
                 }
             }
         }
