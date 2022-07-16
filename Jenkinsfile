@@ -50,6 +50,7 @@ pipeline {
                 // sh "cd /var/lib/jenkins/workspace/${JOB_NAME}/"
                 sh "pwd"
                 sh "ls -als"
+                sh "echo $PATH"
                 sh "pytest --junitxml=./xmlReport/output.xml"
             }
         }
