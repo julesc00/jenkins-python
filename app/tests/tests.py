@@ -1,8 +1,12 @@
+from django.test import TestCase
 import pytest 
 
 
-def test_add():
-    a = 10
-    b = 10
 
-    assert a + b == 10
+class Tests(TestCase):
+
+    def test_add():
+        a = 10
+        b = 10
+
+        assert a + b == 10
