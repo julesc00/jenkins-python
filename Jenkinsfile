@@ -12,6 +12,19 @@ pipeline {
             }
         }
 
+        stage("Update Python Version") {
+            steps {
+                sh """
+                    echo "[INFO] Updating Python version..."
+                    sudo yum update
+                    sudo dnf install python39
+
+                    python3.9 --version
+                    yum install python39-pip
+                """
+            }
+        }
+
         // Run simple Python script
         stage("Run Python script") {
             steps {
@@ -33,13 +46,13 @@ pipeline {
         stage("Start Python environment") {
             steps {
                 sh """
-                    echo "Python version before activating environment"
+                    echo "[INFO] Python version before activating environment"
                     ls -als
                     python3 --version
                     python3 -m venv my_env
                     source my_env/bin/activate
 
-                    echo "Python version after activating environment"
+                    echo "[INFO] Python version after activating environment"
                     python --version
                     pip list
                     pip install -r requirements.txt
